@@ -31,12 +31,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Java and Firefox (macOS)
+      - name: Install Firefox (macOS)
         if: runner.os == 'macOS'
-        run: |
-          brew install firefox
-          echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> $HOME/.zshrc
-          source $HOME/.zshrc
+        run: brew install firefox
 
       - name: Testing on OS (${{ matrix.os }}) with Node.js (version ${{ matrix.node-version }}) attempt ${{ matrix.attempt }}
         run: |
