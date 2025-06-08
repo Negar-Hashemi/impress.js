@@ -33,14 +33,6 @@ jobs:
           npm install
           npm install puppeteer@latest
 
-      - name: Install Firefox (macOS)
-        if: runner.os == 'macOS'
-        run: brew install firefox
-
-      - name: Set FIREFOX_BIN environment variable (macOS)
-        if: runner.os == 'macOS'
-        run: echo "FIREFOX_BIN=/Applications/Firefox.app/Contents/MacOS/firefox" >> $GITHUB_ENV
-
       - name: Testing on OS (${{ matrix.os }}) with Node.js (version ${{ matrix.node-version }}) attempt ${{ matrix.attempt }}
         run: |
           echo "Run attempt: ${{ matrix.attempt }}"
